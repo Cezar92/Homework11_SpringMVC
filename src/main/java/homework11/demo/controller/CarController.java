@@ -5,6 +5,7 @@ import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -14,7 +15,7 @@ import java.util.List;
 
 @Controller
 @AllArgsConstructor
-@RequestMapping("/vehicules")
+@RequestMapping("/")
 
 public class CarController {
 
@@ -23,12 +24,26 @@ public class CarController {
 //    public void user (){
 //    }
 
-    @RequestMapping(method= RequestMethod.GET,path = "/show")
+    @RequestMapping( "/")
     public String viewHomePage(Model model){
-        List<CarEntity> listauto = service.getAll();
+        List<CarEntity> listauto = service.getAllCars();
         model.addAttribute("listCars",listauto);
 
-        return "listCars";
+        return "cars";
+    }
 
+    @RequestMapping("/new")
+    public String showNewCar(Model model) {
+        CarEntity newCar = new CarEntity();
+        model.addAttribute("newCar", newCar);
+        return "newCar";
+
+    }
+
+
+    @RequestMapping(value = "/save", method = RequestMethod.POST)
+    public String saveCar(@ModelAttribute("CarEntity") CarEntity car) {
+        service.save(car);
+        return "redirect:/";
     }
 }

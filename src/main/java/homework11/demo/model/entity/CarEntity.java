@@ -18,11 +18,11 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Data
-//@Builder
-//@AllArgsConstructor
-//@NoArgsConstructor
+@Builder
+@AllArgsConstructor
+@NoArgsConstructor
 @Entity
-@Table(name = "CARS")
+@Table(name = "car")
 public class CarEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -30,37 +30,6 @@ public class CarEntity {
     private String model;
     private String color;
     private Integer engineCapacity;
+    private Integer power;
 
-
-//    public Integer getId() {
-//        return id;
-//    }
-//
-//    public void setId(Integer id) {
-//        this.id = id;
-//    }
-//
-//    public String getModel() {
-//        return model;
-//    }
-//
-//    public void setModel(String model) {
-//        this.model = model;
-//    }
-//
-//    public String getColor() {
-//        return color;
-//    }
-//
-//    public void setColor(String color) {
-//        this.color = color;
-//    }
-//
-//    public Integer getEngineCapacity() {
-//        return engineCapacity;
-//    }
-//
-//    public void setEngineCapacity(Integer engineCapacity) {
-//        this.engineCapacity = engineCapacity;
-//    }
 }

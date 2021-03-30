@@ -15,13 +15,14 @@ public class CarService {
 
     private final CarRepository repo;
 
-    public List<CarEntity> getAll(){
+    public List<CarEntity> getAllCars(){
+
         return repo.findAll();
     }
 
-//    public void save (CarEntity carEntity){
-//        repo.save(carEntity);
-//    }
+    public void save (CarEntity carEntity){
+        repo.save(carEntity);
+    }
 //    public CarEntity get(Integer id){
 //        return repo.findById(id).get();
 //    }

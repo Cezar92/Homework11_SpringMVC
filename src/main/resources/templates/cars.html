@@ -5,28 +5,35 @@
     <title>Cars show</title>
 </head>
 <body>
+<div align="center">
+    <h1>Cars Record</h1>
+    <table border="1">
+        <thead>
+        <tr>
+            <th>Id</th>
+            <th>Model</th>
+            <th>Color</th>
+            <th>EngineCapacity</th>
+            <th>Power</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="carEntity:${listCars}">
 
-<h1>Cars Record</h1>
+            <td th:text="${carEntity.id}"></td>
+            <td th:text="${carEntity.model}"></td>
+            <td th:text="${carEntity.color}"></td>
+            <td th:text="${carEntity.engineCapacity}"></td>
+            <td th:text="${carEntity.power}"></td>
 
-<table>
-    <tr>
-        <th>Id</th>
-        <th>Model</th>
-        <th>Color</th>
-        <th>EngineCapacity</th>
-    </tr>
+        </tr>
+        </tbody>
+    </table>
+    <div align="center">
+        <a href="new">Add new Car</a>
 
-    <tr th:each="carEntity:${listCars}">
+    </div>
 
-        <td th:text="${carEntity.id}"></td>
-        <td th:text="${carEntity.model}"></td>
-        <td th:text="${carEntity.color}"></td>
-        <td th:text="${carEntity.engineCapacity}"></td>
-
-
-    </tr>
-
-</table>
-
+</div>
 </body>
 </html>
